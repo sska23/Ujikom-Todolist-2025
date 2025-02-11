@@ -1,0 +1,159 @@
+/* Background umum dan font */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(Voilet.jpg);
+    color: #4f4f4f;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container utama */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(210, 188, 226);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header .title {
+    display: flex;
+    align-items: center;
+    color: #6f4f94;
+    font-size: 1.5rem;
+}
+
+.header .back-btn {
+    margin-right: 10px;
+}
+
+.header .description {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Subtask Section */
+.subtask-section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.subtask-section form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.subtask-section form input,
+.subtask-section form select,
+.subtask-section form button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e0c6f4;
+    font-size: 1rem;
+}
+
+.subtask-section form input[type="text"] {
+    width: 60%;
+}
+
+.subtask-section form button {
+    background-color: #b18bc9;
+    color: white;
+    cursor: pointer;
+}
+
+.subtask-section form button:hover {
+    background-color: #7d5ea2;
+}
+
+/* Daftar Subtask */
+.subtask-list {
+    margin-top: 20px;
+}
+
+.subtask-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #faf3fc;
+    padding: 12px;
+    margin-bottom: 15px; /* Tambahkan margin bawah untuk jarak antar subtask */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.subtask-checkbox {
+    margin-right: 15px;
+}
+
+.subtask-label {
+    font-size: 15px;
+    color: #6f4f94;
+    flex: 1;
+
+}
+
+.subtask-priority {
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    display: inline-block;
+    margin-right: 6px; /* Tambahkan jarak antara prioritas dan deadline */
+}
+
+.high-priority {
+    background-color:rgb(141, 94, 147);
+    color: white;
+}
+
+.low-priority {
+    background-color: rgb(202, 170, 208);
+    color: white;
+}
+
+/* Deadline */
+.subtask-deadline {
+    font-size: 0.9rem;
+    color: #6f6f6f;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px; /* Beri jarak antar elemen dalam subtask */
+}
+
+.subtask-checkbox:checked + .subtask-label {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+/* Icon Edit dan Hapus */
+.subtask-item .hapus {
+    color: #9a77d8;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.subtask-item .edit:hover,
+.subtask-item .hapus:hover {
+    color: #b83f51;
+}
+
+.subtask-item .edit i,
+.subtask-item .hapus i {
+    font-size: 1.2rem;
+}

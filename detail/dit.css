@@ -1,0 +1,106 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* Warna latar belakang abu-abu terang */
+    color: #333; /* Warna teks gelap untuk kontras yang baik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Header */
+h1 {
+    font-size: 2rem;
+    color: #5c6bc0; /* Warna biru muda untuk judul */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label */
+label {
+    font-size: 1rem;
+    color: #555; /* Warna teks label */
+    font-weight: 600;
+}
+
+/* Input dan Select */
+input[type="text"],
+input[type="date"],
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Border abu-abu terang */
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #5c6bc0; /* Warna biru muda saat fokus */
+    box-shadow: 0 0 5px rgba(92, 107, 192, 0.5); /* Efek fokus */
+}
+
+/* Button Styling */
+button {
+    padding: 12px;
+    background-color: #5c6bc0; /* Warna biru muda untuk tombol */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3f51b5; /* Biru lebih gelap saat hover */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    select {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
