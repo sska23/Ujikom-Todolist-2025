@@ -1,35 +1,29 @@
 <?php
-
 session_start();
-
 require 'functions.php';
 
-if( isset($_POST["login"]) ) {
+$error = false;
 
+if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-    //cek username
-    if( mysqli_num_rows($result) == 1 ) {
-
-        //cek password
+    if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        if( password_verify($password, $row["password"]) ) {
 
-            //set session ini agar user tidak dapat membuka halaman index sebelum login terlebih dahulu
+        if (password_verify($password, $row["password"])) {
+            // Set session login dan user_id
             $_SESSION["login"] = true;
+            $_SESSION["user_id"] = $row["id"]; // Simpan user_id
 
             header("Location: index.php");
             exit;
         }
     }
-
     $error = true;
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +39,11 @@ if( isset($_POST["login"]) ) {
     <div class="wrapper">
         <form action="" method="post">
             <h1>Login</h1>
+            
+            <?php if ($error): ?>
+                <p style="color: red; text-align: center;">Username atau password salah!</p>
+            <?php endif; ?>
+
             <div class="input-box">
                 <input type="text" name="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
@@ -53,11 +52,6 @@ if( isset($_POST["login"]) ) {
                 <input type="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
-
-            <!-- <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Lupa password</a>
-            </div> -->
 
             <button type="submit" name="login" class="btn">Login</button>
 

@@ -1,29 +1,32 @@
 <?php
-
-// 
 session_start();
-
 require 'functions.php';
 
-if( isset($_POST["register"]) ){
+if (isset($_POST["register"])) {
+    $result = registrasi($_POST);
+    
+    if ($result > 0) {
+        echo "<script>alert('User baru berhasil ditambahkan');</script>";
 
-    if( registrasi($_POST) > 0 ) {
-        echo "<script>
-                alert('user baru berhasil ditambahkan');
-              </script>";
+        // Ambil data user dari database berdasarkan username
+        global $conn;
+        $username = $_POST["username"];
+        $query = "SELECT id FROM users WHERE username = '$username'";
+        $res = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($res);
 
-    // Langsung set session dan arahkan ke halaman index
+        // Set session
         $_SESSION["login"] = true;
-        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["username"] = $username;
+        $_SESSION["user_id"] = $row["id"]; // Simpan user_id
 
+        // Redirect ke halaman utama
         header("Location: index.php");
         exit;
-        
     } else {
-        echo mysqli_error($conn);
+        echo "<script>alert('Registrasi gagal!');</script>";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -50,17 +53,12 @@ if( isset($_POST["register"]) ){
             </div>
             <div class="input-box">
                 <input type="password" name="password" placeholder="Password" required>
-                <i class='bx bxs-lock-alt' ></i>
+                <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="input-box">
                 <input type="password" name="password2" placeholder="Konfirmasi Password" required>
-                <i class='bx bxs-lock-alt' ></i>
+                <i class='bx bxs-lock-alt'></i>
             </div>
-
-            <!-- <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot password</a>
-            </div> -->
 
             <button type="submit" name="register" class="btn">Registrasi</button>
 

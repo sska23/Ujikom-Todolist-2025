@@ -1,0 +1,119 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset dan Global Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(Voilet.jpg);
+    color: #4a3b5c;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container Utama */
+.history-list {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ede2f7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Link Back */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link i {
+    font-size: 1.7rem; /* Ukuran diperbesar */
+    margin-right: 8px;
+}
+
+.back-link:hover {
+    color: #d1b3e0;
+}
+
+/* Tabel Riwayat Tugas */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f5fc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-table th, .history-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.history-table th {
+    background-color: #d1b3e0;
+    color: #4a3b5c;
+    font-weight: 600;
+}
+
+.history-table tr:nth-child(even) {
+    background-color: #f3e8fb;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .history-list {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .back-link {
+        font-size: 1.1rem;
+        padding: 8px 16px;
+    }
+
+    .history-table th, .history-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .history-table th, .history-table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}

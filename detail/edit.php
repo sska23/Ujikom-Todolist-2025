@@ -39,11 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
 
     // Redirect setelah update
-    header("Location: /todolist/subtasks.php");
-    exit;
+    echo "<script>alert('Subtask berhasil diupdate!'); window.location.href = 'subtasks.php?task_id=" . $subtask_data['task_id'] . "';</script>";
+
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -51,16 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Subtask</title>
-    <link rel="stylesheet" href="cok.css">
+    <link rel="stylesheet" href="ya.css">
 </head>
 <body>
     <div class="container">
+        <div class="back">
+          <a href="<?= htmlspecialchars($back_url) ?>" class="back-btn">Back</a>
+        </div>
         <div class="header">
-            <div class="title">
-                <a href="<?= htmlspecialchars($back_url) ?>" class="back-btn"><i class='bx bx-chevron-left'></i></a>
-                <h1>Edit Subtask</h1>
-            </div>
-            <p class="description">Edit your subtask details</p>
+            <h1>Edit Subtask</h1>
         </div>
 
         <div class="subtask-section">
@@ -77,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="deadline"></label>
                 <input type="date" id="deadline" name="deadline" value="<?= $subtask_data['deadline'] ?>">
 
-                <button type="submit">Update</button>
+                <button type="submit">Edit</button>
             </form>
         </div>
     </div>
